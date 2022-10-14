@@ -49,14 +49,17 @@ window.todoMake = async function () {
     form.value = "";
     form.focus();
 
+    liMake.setAttribute("id" , sendDoc.id);
+    // console.log(liMake);
+
 
 
 }
 
 window.deleteTodo = async function (element) {
-    console.log(id);
+    // console.log(id);
     newTodo.removeChild(element.parentNode);
-    // await deleteDoc(doc(db, "todos", "abdullah"));
+    await deleteDoc(doc(db, "todos", element.parentNode.id));
 }
 
 let oldEle;
