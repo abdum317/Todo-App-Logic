@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Verification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <h1><span id="click" class="underline hover:text-blue-800 cursor-pointer">Click Here</span> for Email Verification</h1>
+
+    <script type="module">
+        import { auth } from "./config.js";
+        import { sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+        let click = document.getElementById("click");
+        click.addEventListener("click" , ()=>{
+            sendEmailVerification(auth.currentUser)
+            .then(() => {
+                alert("Verification Send")
+            })
+            .catch(()=>{
+                console.log("error");
+            })
+        })
+    </script>
+</body>
+
+</html>
